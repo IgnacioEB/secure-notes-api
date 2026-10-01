@@ -24,8 +24,6 @@ public class Nota {
     public Nota(){}
 
 
-
-
     public Long getId() {
         return id;
     }
@@ -50,5 +48,11 @@ public class Nota {
         this.contenido = contenido;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
