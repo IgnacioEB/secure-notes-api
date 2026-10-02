@@ -3,6 +3,7 @@ package com.example.notesapp.controller;
 import com.example.notesapp.dto.LoginRequest;
 import com.example.notesapp.dto.RegistroRequest;
 import com.example.notesapp.service.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class AuthController {
 
 
     @PostMapping("/registrar")
-    public ResponseEntity<Void> registrarUsuario(@RequestBody RegistroRequest registroRequest){
+    public ResponseEntity<Void> registrarUsuario(@Valid @RequestBody RegistroRequest registroRequest){
         authService.registrarUsuario(registroRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

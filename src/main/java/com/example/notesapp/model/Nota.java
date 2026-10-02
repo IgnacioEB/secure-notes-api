@@ -2,17 +2,18 @@ package com.example.notesapp.model;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "notas")
 public class Nota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = false)
     private String titulo;
 
     private String contenido;
     @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     public Nota(String titulo, String contenido,Usuario usuario){
         this.titulo= titulo;

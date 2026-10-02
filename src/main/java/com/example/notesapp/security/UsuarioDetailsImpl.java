@@ -50,4 +50,8 @@ public class UsuarioDetailsImpl implements UserDetails {
     public String getUsername() {
         return usuario.getEmail();
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
 }
