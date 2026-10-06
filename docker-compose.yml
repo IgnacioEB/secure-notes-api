@@ -1,0 +1,27 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/notasapp
+      DB_USER: notasapp_user
+      DB_PASSWORD: notasapp_pass
+      SECRET: WzTBKA7C27Ubch6L2XjvXXAZK2Bvl05kd6C7uZX5GH0
+      exp_time: 86400000
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: notasapp
+      POSTGRES_USER: notasapp_user
+      POSTGRES_PASSWORD: notasapp_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
