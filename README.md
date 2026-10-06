@@ -35,16 +35,19 @@ POST /auth/registrar
 ```
 `201 Created` si se creó, `409` si el email ya existe.
 
+```
 ### 2. Iniciar sesión
 ```
 POST /auth/login
-```
+
 Mismo body que el registro. La respuesta es el token, como texto plano (sin comillas ni `{}`) — copialo completo, lo vas a necesitar en los siguientes dos. `401` si las credenciales no coinciden.
 
 ### 3. Crear una nota
 ```
-POST /nota
+### 3. Crear una nota
 ```
+POST /nota
+
 Pestaña **Authorization** → tipo `Bearer Token` → pegá el token del paso 2.
 Pestaña **Body** → `raw` → `JSON`:
 ```json
